@@ -1,0 +1,50 @@
+﻿@model TipCalculatorModel
+
+@{
+    ViewData["Title"] = "Tip Calculator";
+}
+
+<div class="container">
+        <h1 class="mt-3">@ViewBag.Title</h1>
+    <form asp-action="Index" method="post">
+        <div class="row">
+            <label asp-for="SalesPrice" class="col-md-3 col-form-label">
+                Subtotal:
+            </label>
+            <div class="col-md-3">
+                <input asp-for="SalesPrice" class="form-control" />
+            </div>
+            <span asp-validation-for="SalesPrice"
+                  class="col text-danger"></span>
+        </div>                                          
+        <div class="row">
+            <label class="col-md-3 col-form-label">
+                15% Tip:
+            </label>
+            <label class="col-md-3 col-form-label">
+                @ViewBag.A.ToString("C2")
+            </label>
+        </div>
+        <div class="row">
+            <label class="col-md-3 col-form-label">20% Tip:</label>
+            <label class="col-md-3 col-form-label">
+                @ViewBag.B.ToString("C2")
+            </label>
+        </div>
+        <div class="row">
+            <label class="col-md-3 col-form-label">25% Tip:</label>
+            <label class="col-md-3 col-form-label">
+                @ViewBag.C.ToString("C2")
+            </label>
+        </div>
+        <div class="row">
+            <div class="col pl-0">
+                <button type="submit" class="btn btn-success">
+                    Calculate
+                </button>
+                <a asp-action="Index"
+                   class="btn btn-success">Clear</a>
+            </div>
+        </div>
+    </form>
+</div>
